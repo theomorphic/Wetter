@@ -52,4 +52,10 @@ async function checkWeather(city){
 
 searchBtn.addEventListener("click", ()=>{
 	checkWeather(searchBox.value);
-})
+});
+searchBox.addEventListener("keypress", function(e){
+
+	if(e.which == 13){
+		checkWeather(searchBox.value);
+	}
+});
