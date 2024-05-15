@@ -59,6 +59,7 @@ body{
 }
 
 .weather{
+	display: none;
 	.weather-icon{
 		margin-top: 30px;
 		width: 170px;
@@ -94,4 +95,12 @@ body{
 			}
 		}
 	}
+}
+
+.error{
+	display: none;
+	margin-left: 10px;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 16px;
 }
