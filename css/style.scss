@@ -16,6 +16,7 @@ body{
 	text-align: center;
 	width: 90%;
 	max-width: 470px;
+	height: 95%;
 	background: linear-gradient(135deg, #00a1fe, #8478cf);
 	color: #fff;
 	border-radius: 20px;
@@ -59,7 +60,7 @@ body{
 }
 
 .weather{
-	display: none;
+	visibility: hidden;
 	.weather-icon{
 		margin-top: 30px;
 		width: 170px;
@@ -72,6 +73,7 @@ body{
 		margin-top: -10px;
 		font-size: 45px;
 		font-weight: 400;
+		text-transform: capitalize;
 	}
 	.details{
 		display: flex;
@@ -98,9 +100,9 @@ body{
 }
 
 .error{
-	display: none;
+	visibility:hidden;
 	margin-left: 10px;
 	margin-top: 10px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 18px;
 }

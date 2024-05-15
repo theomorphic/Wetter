@@ -6,21 +6,20 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon")
 
-//функция делает первую букву ответа заглавной
-function toUpperCaseAnswer(answer){
-	return answer.charAt(0).toUpperCase() + answer.slice(1);
-}
-
 async function checkWeather(city){
 	const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 	let data = await response.json();
 
 	if(response.status == 404){
-		document.querySelector(".error").style.display = "block"
-		document.querySelector(".weather").style.display = "none"
+		document.querySelector(".error").style.visibility = "visible";
+		document.querySelector(".weather").style.visibility = "hidden";
+		
 	}
 	else{
-		document.querySelector(".city").innerHTML = toUpperCaseAnswer(searchBox.value);
+
+		let cityName = searchBox.value;
+
+		document.querySelector(".city").innerHTML = cityName;
 		document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
 		document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
 		document.querySelector(".wind").innerHTML = data.wind.speed + " м/с";
@@ -44,9 +43,11 @@ async function checkWeather(city){
 			weatherIcon.src = "./img/snow.png";
 		}
 
-		document.querySelector(".weather").style.display = "block";
-		document.querySelector(".error").style.display = "none"
+		document.querySelector(".weather").style.visibility = "visible";
+		document.querySelector(".error").style.visibility = "hidden";
 
+		searchBox.value = "";
+		
 	}
 }
 
